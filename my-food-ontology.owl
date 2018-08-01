@@ -1,0 +1,162 @@
+@prefix : <http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology> .
+
+<http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#contains
+:contains rdf:type owl:ObjectProperty ;
+          rdfs:domain :Dish ;
+          rdfs:range :Ingredient .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#hasMenus
+:hasMenus rdf:type owl:ObjectProperty ;
+          rdfs:domain :Restaurant ;
+          rdfs:range :Menu .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#isLocatedIn
+:isLocatedIn rdf:type owl:ObjectProperty ;
+             rdfs:domain :Restaurant ;
+             rdfs:range :Location .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#isServedIn
+:isServedIn rdf:type owl:ObjectProperty ;
+            owl:inverseOf :serves ;
+            rdfs:domain :Food ;
+            rdfs:range :Restaurant .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#isSpecializedIn
+:isSpecializedIn rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Restaurant ;
+                 rdfs:range :Cuisine .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#lists
+:lists rdf:type owl:ObjectProperty ;
+       rdfs:domain :Menu ;
+       rdfs:range :Food .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#serves
+:serves rdf:type owl:ObjectProperty ;
+        rdfs:domain :Restaurant ;
+        rdfs:range :Food .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#address
+:address rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Location ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#allergen
+:allergen rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Ingredient ;
+          rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#description
+:description rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Food ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#endDate
+:endDate rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Menu ;
+         rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#firstCourse
+:firstCourse rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Dish ;
+             rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#latitude
+:latitude rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Location ;
+          rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#longitude
+:longitude rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Location ;
+           rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Dish ,
+                  :Restaurant ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#price
+:price rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Food ;
+       rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#secondCourse
+:secondCourse rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Dish ;
+              rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#startDate
+:startDate rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Menu ;
+           rdfs:range xsd:dateTime .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Cuisine
+:Cuisine rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Dish
+:Dish rdf:type owl:Class ;
+      rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Food
+:Food rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Ingredient
+:Ingredient rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Location
+:Location rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Menu
+:Menu rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant
+:Restaurant rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
