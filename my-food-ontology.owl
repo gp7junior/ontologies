@@ -12,10 +12,23 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#belongsTo
+:belongsTo rdf:type owl:ObjectProperty ;
+           owl:inverseOf :hasDishes ;
+           rdfs:domain :Dish ;
+           rdfs:range :Cuisine .
+
+
 ###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#contains
 :contains rdf:type owl:ObjectProperty ;
           rdfs:domain :Dish ;
           rdfs:range :Ingredient .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#hasDishes
+:hasDishes rdf:type owl:ObjectProperty ;
+           rdfs:domain :Cuisine ;
+           rdfs:range :Dish .
 
 
 ###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#hasMenus
