@@ -1,0 +1,66 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix ex: <http://example.com/ns#>.
+
+# <#TriplesMapX>
+#	rr:logicalTable [ rr:tableName "TABLE NAME IN THE RELATIONAL DATABASE"]
+#
+
+# TRIPLES MAP | ONTOLOGY   |   DATABASE
+# ---------------------------------------
+#  1	 	  | Restaurant | RESTAURANT and RESTAURANT_INFO
+#  2		  | Dish 	   | DISH and DISH_CATEGORY
+#  3		  | Menu 	   |`MENU  
+#  4		  | Cuisine	   | CUISINE_TYPE
+#  5 		  | Location   | POSITION
+<#TriplesMap1>
+	rr:logicalTable [ rr:tableName "RESTAURANT" ]; # logical referenced table from the relational database
+	rr:subjectMap [  							   # iris generated from the primary key column in the logial table
+		rr:template "http://data.example.com/restaurant/{RESTAURANT_ID}"
+		rr:class ex:Restaurant;
+	];
+	rr:predicateObjectMap [						   # multiple predicate maps will be generated from the logical table columns
+		rr:predicate ex:name;
+		rr:objectMap [ rr:column "NAME"];
+	].
+	# I still have to map the cusine category 
+
+<#TriplesMap2>
+	rr:logicalTable [ rr:tableName "DISH"];
+	rr:subjectMap [
+		rr:template "http://data.example.com/dish/{DISH_ID}"
+		rr:class ex:Dish;
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:name;
+		rr:objectMap [ rr:column "NAME"];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:description;
+		rr:objectMap [ rr:column "DESCRIPTION"];
+	].
+
+<#TriplesMap3>
+	rr:logicalTable [ rr:tableName "MENU"];
+	rr:subjectMap [
+		rr:template "http://data.example.com/menu/{MENU_ID}"
+		rr:class ex:Dish;
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:description;
+		rr:objectMap [ rr:column "DESCRIPTION"];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:startDate;
+		rr:objectMap [ rr:column "START_DATE"];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:endDate;
+		rr:objectMap [ rr:column "END_DATE"];
+	].
+
+#<#TriplesMap4>
+#.
+
+#<#TriplesMap5>
+#.
+
