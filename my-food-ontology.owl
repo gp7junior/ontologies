@@ -139,6 +139,12 @@
            rdfs:range xsd:dateTime .
 
 
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#vegetarian
+:vegetarian rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Dish ;
+            rdfs:range xsd:boolean .
+
+
 #################################################################
 #    Classes
 #################################################################
