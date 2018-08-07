@@ -20,10 +20,10 @@ The intention of this ontology is to feed a Natural Language processing system h
 
 ### Object Properties
 
-* Restaurant is specialized in Cuisine
-           serves Food
-           has Menus
-           is located in Location
+* Restaurant is specialized in Cuisine,
+   * serves Food
+   * has Menus
+   * is located in Location
 * Menu lists Food
 * Food is served in Restaurants
 * Dish contains Ingredients
