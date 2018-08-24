@@ -21,11 +21,30 @@
     
 
 
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#belongsTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#belongsTo">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#hasDishes"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Dish"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Cuisine"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#contains -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#contains">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Dish"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Ingredient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#hasDishes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#hasDishes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Cuisine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Dish"/>
     </owl:ObjectProperty>
     
 
@@ -61,6 +80,8 @@
     <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#isSpecializedIn -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#isSpecializedIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Cuisine"/>
     </owl:ObjectProperty>
@@ -196,6 +217,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#vegetarian -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#vegetarian">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Dish"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -204,6 +234,25 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#BrazilianRestaurant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#BrazilianRestaurant">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#isSpecializedIn"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Brazilian"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant"/>
+    </owl:Class>
     
 
 
@@ -227,9 +276,42 @@
     
 
 
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#GermanRestaurant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#GermanRestaurant">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#isSpecializedIn"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#German"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Ingredient -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Ingredient"/>
+    
+
+
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#ItalianRestaurant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#ItalianRestaurant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#isSpecializedIn"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Italian"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -248,6 +330,101 @@
     <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Barbaras -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Barbaras">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant"/>
+        <isSpecializedIn rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Italian"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Brazilian -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Brazilian">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Cuisine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Chinese -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Chinese">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Cuisine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#German -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#German">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Cuisine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Indian -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Indian">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Cuisine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Italian -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Italian">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Cuisine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Matteos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Matteos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant"/>
+        <isSpecializedIn rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#German"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Paolos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Paolos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant"/>
+        <isSpecializedIn rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Italian"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Pasta_alla_Carbonara -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Pasta_alla_Carbonara">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Dish"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Pedros -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Pedros">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant"/>
+        <isSpecializedIn rdf:resource="http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Brazilian"/>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 

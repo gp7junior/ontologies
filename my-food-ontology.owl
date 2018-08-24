@@ -51,7 +51,9 @@
 
 
 ###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#isSpecializedIn
-:isSpecializedIn rdf:type owl:ObjectProperty ;
+:isSpecializedIn rdf:type owl:ObjectProperty ,
+                          owl:AsymmetricProperty ,
+                          owl:IrreflexiveProperty ;
                  rdfs:domain :Restaurant ;
                  rdfs:range :Cuisine .
 
@@ -149,6 +151,19 @@
 #    Classes
 #################################################################
 
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#BrazilianRestaurant
+:BrazilianRestaurant rdf:type owl:Class ;
+                     owl:equivalentClass [ owl:intersectionOf ( :Restaurant
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :isSpecializedIn ;
+                                                                  owl:hasValue :Brazilian
+                                                                ]
+                                                              ) ;
+                                           rdf:type owl:Class
+                                         ] ;
+                     rdfs:subClassOf :Restaurant .
+
+
 ###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Cuisine
 :Cuisine rdf:type owl:Class .
 
@@ -162,8 +177,30 @@
 :Food rdf:type owl:Class .
 
 
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#GermanRestaurant
+:GermanRestaurant rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( :Restaurant
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :isSpecializedIn ;
+                                                               owl:hasValue :German
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf :Restaurant .
+
+
 ###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Ingredient
 :Ingredient rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#ItalianRestaurant
+:ItalianRestaurant rdf:type owl:Class ;
+                   rdfs:subClassOf :Restaurant ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isSpecializedIn ;
+                                     owl:hasValue :Italian
+                                   ] .
 
 
 ###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Location
@@ -176,6 +213,64 @@
 
 ###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Restaurant
 :Restaurant rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Barbaras
+:Barbaras rdf:type owl:NamedIndividual ,
+                   :Restaurant ;
+          :isSpecializedIn :Italian .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Brazilian
+:Brazilian rdf:type owl:NamedIndividual ,
+                    :Cuisine .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Chinese
+:Chinese rdf:type owl:NamedIndividual ,
+                  :Cuisine .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#German
+:German rdf:type owl:NamedIndividual ,
+                 :Cuisine .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Indian
+:Indian rdf:type owl:NamedIndividual ,
+                 :Cuisine .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Italian
+:Italian rdf:type owl:NamedIndividual ,
+                  :Cuisine .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Matteos
+:Matteos rdf:type owl:NamedIndividual ,
+                  :Restaurant ;
+         :isSpecializedIn :German .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Paolos
+:Paolos rdf:type owl:NamedIndividual ,
+                 :Restaurant ;
+        :isSpecializedIn :Italian .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Pasta_alla_Carbonara
+:Pasta_alla_Carbonara rdf:type owl:NamedIndividual ,
+                               :Dish .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#Pedros
+:Pedros rdf:type owl:NamedIndividual ,
+                 :Restaurant ;
+        :isSpecializedIn :Brazilian .
 
 
 ###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
