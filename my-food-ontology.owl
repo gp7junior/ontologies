@@ -50,6 +50,13 @@
             rdfs:range :Restaurant .
 
 
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#isSimilarTo
+:isSimilarTo rdf:type owl:ObjectProperty ,
+                      owl:ReflexiveProperty ;
+             rdfs:domain :Cuisine ;
+             rdfs:range :Cuisine .
+
+
 ###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#isSpecializedIn
 :isSpecializedIn rdf:type owl:ObjectProperty ,
                           owl:AsymmetricProperty ,
@@ -73,12 +80,6 @@
 #################################################################
 #    Data properties
 #################################################################
-
-###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#address
-:address rdf:type owl:DatatypeProperty ;
-         rdfs:domain :Location ;
-         rdfs:range xsd:string .
-
 
 ###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#allergen
 :allergen rdf:type owl:DatatypeProperty ;
@@ -104,16 +105,16 @@
              rdfs:range xsd:boolean .
 
 
-###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#latitude
-:latitude rdf:type owl:DatatypeProperty ;
-          rdfs:domain :Location ;
-          rdfs:range xsd:float .
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#mail
+:mail rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Restaurant ;
+      rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#longitude
-:longitude rdf:type owl:DatatypeProperty ;
-           rdfs:domain :Location ;
-           rdfs:range xsd:float .
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#municipality
+:municipality rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Location ;
+              rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#name
@@ -121,6 +122,12 @@
       rdfs:domain :Dish ,
                   :Restaurant ;
       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#phone
+:phone rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Restaurant ;
+       rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/gp7junior/ontologies/2018/6/my-food-ontology#price
